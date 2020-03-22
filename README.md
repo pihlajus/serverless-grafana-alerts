@@ -4,7 +4,7 @@ Creates alerts to Grafana using AWS Lambda and Serverless framework. Uses Slack 
 You can setup Grafana to AWS EC2 using [ruuvitag-aws-provisioning](https://github.com/pihlajus/ruuvitag-aws-provisioning)
 project.
 
-## Table of contents
+## Contents
 - [How it works](#how-it-works)
 - [Prerequisites](#prerequisites)
   * [Slack application](#slack-application)
