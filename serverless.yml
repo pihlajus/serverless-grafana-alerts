@@ -1,0 +1,46 @@
+service:
+  name: aws-nodejs-typescript
+
+provider:
+  name: aws
+  region: eu-north-1
+  runtime: nodejs12.x
+  stage: dev
+  apiGateway:
+    minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+plugins:
+  - '@hewmen/serverless-plugin-typescript'
+  - serverless-plugin-optimize
+  - serverless-offline
+  - serverless-domain-manager
+
+package:
+  include:
+    src/**/!(*.spec).js
+  exclude:
+    - node_modules/**/*
+    -
+functions:
+  setAlarm:
+    handler: src/main.setAlarm
+    environment:
+      GRAFANA_API_KEY: <your_api_key>
+      SLACK_SIGNING_SECRET: <your_signing_secret>
+      GRAFANA_DASHBOARD_API: <your_dashboard_api>
+      GRAFANA_DASHBOARD_UID: <your_uid>
+    events:
+      - http:
+          method: post
+          path: slack/alarm
+
+custom:
+  serverless-offline:
+    port: 4000
+
+  customDomain:
+    domainName: <your_domain>
+    certificateName: <your_cert>
+    basePath: api

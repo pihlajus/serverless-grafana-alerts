@@ -1,0 +1,181 @@
+{
+  "datasource": "Ruuvi",
+  "alert": {
+    "conditions": [
+      {
+        "evaluator": {
+          "params": [
+            55
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "and"
+        },
+        "query": {
+          "params": [
+            "A",
+            "1m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "avg"
+        },
+        "type": "query"
+      }
+    ],
+    "executionErrorState": "keep_state",
+    "frequency": "60s",
+    "handler": 1,
+    "message": "Sauna lämmin!",
+    "name": "Sauna lämmin!",
+    "noDataState": "no_data",
+    "notifications": [
+      {
+        "id": 1
+      }
+    ],
+    "for": "0m",
+    "alertRuleTags": {}
+  },
+  "aliasColors": {},
+  "bars": false,
+  "dashLength": 10,
+  "dashes": false,
+  "fill": 1,
+  "gridPos": {
+    "h": 10,
+    "w": 24,
+    "x": 0,
+    "y": 15
+  },
+  "hideTimeOverride": false,
+  "id": 107,
+  "legend": {
+    "alignAsTable": false,
+    "avg": false,
+    "current": false,
+    "hideEmpty": false,
+    "hideZero": false,
+    "max": false,
+    "min": false,
+    "rightSide": false,
+    "show": true,
+    "total": false,
+    "values": false
+  },
+  "lines": true,
+  "linewidth": 1,
+  "links": [],
+  "nullPointMode": "null",
+  "percentage": false,
+  "pointradius": 5,
+  "points": false,
+  "renderer": "flot",
+  "seriesOverrides": [],
+  "spaceLength": 10,
+  "stack": false,
+  "steppedLine": false,
+  "targets": [
+    {
+      "alias": "Lämpötila",
+      "groupBy": [
+        {
+          "params": [
+            "$__interval"
+          ],
+          "type": "time"
+        },
+        {
+          "params": [
+            "null"
+          ],
+          "type": "fill"
+        }
+      ],
+      "measurement": "ruuvi_measurements",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "query": "SELECT max(\"temperature\") FROM \"ruuvi_measurements\" WHERE $timeFilter GROUP BY time(24h)",
+      "rawQuery": false,
+      "refId": "A",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "temperature"
+            ],
+            "type": "field"
+          },
+          {
+            "params": [],
+            "type": "mean"
+          }
+        ]
+      ],
+      "tags": [
+        {
+          "key": "name",
+          "operator": "=",
+          "value": "Sauna"
+        }
+      ]
+    }
+  ],
+  "thresholds": [
+    {
+      "value": 55,
+      "op": "gt",
+      "fill": true,
+      "line": true,
+      "colorMode": "critical"
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "Saunan lämpötila",
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  },
+  "type": "graph",
+  "xaxis": {
+    "buckets": null,
+    "mode": "time",
+    "name": null,
+    "show": true,
+    "values": []
+  },
+  "yaxes": [
+    {
+      "format": "celsius",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": true
+    },
+    {
+      "format": "short",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": true
+    }
+  ],
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  },
+  "options": {
+    "dataLinks": []
+  },
+  "fillGradient": 0,
+  "hiddenSeries": false,
+  "timeRegions": []
+}
