@@ -6,6 +6,7 @@ project.
 
 ## Contents
 - [How it works](#how-it-works)
+- [Data flow](#data-flow)
 - [Prerequisites](#prerequisites)
   * [Slack application](#slack-application)
   * [AWS account](#aws-account)
@@ -22,7 +23,8 @@ project.
 
 **Lambda replies and Slack renders the reply:**<br> ![alt text](documents/slack_saunavahti_2.png "Lambda reply")
 
-**Main components and data flow:**<br>![alt text](documents/serverless-grafana-alarms.png "This is how it works")
+##Data flow
+![alt text](documents/serverless-grafana-alarms.png "This is how it works")
 
 There is no possibility to create an alert using alert API in Grafana so you have to use
 [dashboard API](https://grafana.com/docs/grafana/latest/http_api/dashboard/) to create alerts. The
