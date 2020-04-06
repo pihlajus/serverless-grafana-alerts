@@ -18,6 +18,13 @@ project.
 
 
 ## How it works
+Enter your command to Slack:
+![alt text](documents/slack_saunavahti_1.png "Slack command")
+
+Lambda replies and Slack renders the reply:
+![alt text](documents/slack_saunavahti_2.png "Lambda reply")
+
+Main components and data flow:
 ![alt text](documents/serverless-grafana-alarms.png "This is how it works")
 
 There is no possibility to create an alert using alert API in Grafana so you have to use
