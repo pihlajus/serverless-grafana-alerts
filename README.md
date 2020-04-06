@@ -19,7 +19,7 @@ project.
 
 
 ## How it works
-**Enter your command to Slack:**<br> ![alt text](documents/slack_saunavahti_1.png "Slack command")
+**Enter your command in Slack:**<br> ![alt text](documents/slack_saunavahti_1.png "Slack command")
 
 **Lambda replies and Slack renders the reply:**<br> ![alt text](documents/slack_saunavahti_2.png "Lambda reply")
 
